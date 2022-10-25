@@ -1,6 +1,6 @@
-FROM node:lts-alpine as build
-RUN mkdir /App
-WORKDIR /App
-COPY . /App
-RUN npm install -g @angular/cli
-RUN ng build --pro
+FROM node:14-alpine as build
+RUN mkdir -p /usr/src/App
+WORKDIR /usr/src/App
+COPY . /usr/src/App
+RUN npm install
+RUN npm run build
